@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bio Page</title>
-    <link rel="icon" type="image/x-icon" href="assets/media/pfp.png" />
+    <link rel="icon" type="image/x-icon" href=".assets/media/pfp.png" />
     <style>
       :root {
         --accent: #8b5cf6;
@@ -445,7 +445,7 @@
       <section id="about" class="hero">
         <div class="profile-card">
           <div class="profile-top">
-            <img class="avatar" src="assets/media/logo.png" alt="Profile photo" onerror="this.onerror=null;this.src='assets/Media/pfp.png';" />
+            <img class="avatar" src=".assets/media/logo.png" alt="Profile photo" onerror="this.onerror=null;this.src='.assets/Media/pfp.png';" />
             <div>
               <p class="eyebrow">Biography</p>
               <h1>Cozmo</h1>
@@ -513,7 +513,7 @@
 
           <div class="audio-standalone">
             <audio id="audioPlayer" controls preload="metadata">
-              <source src="assets/Audio/Jesus Walks.mp3" type="audio/mpeg" />
+              <source src=".assets/Audio/Jesus Walks.mp3" type="audio/mpeg" />
             </audio>
           </div>
         </div>
@@ -565,9 +565,9 @@
       const modalDescription = document.getElementById('modalDescription');
 
       const albumItems = [
-        { src: 'assets/media/pfp.png', title: 'Leaf Cat', description: 'My Profile Picture' },
-        { src: 'assets/media/gi.png', title: 'Gateway Interactive', description: 'Unnoficial company I founded with my friend but I left to pursue my education' },
-        { src: 'assets/media/mb3d.png', title: 'MB3D Engine', description: 'Module Based 3D Engine, Dropped the idea since it wasn\'t original.'},
+        { src: '.assets/media/pfp.png', title: 'Leaf Cat', description: 'My Profile Picture' },
+        { src: '.assets/media/gi.png', title: 'Gateway Interactive', description: 'Unnoficial company I founded with my friend but I left to pursue my education' },
+        { src: '.assets/media/mb3d.png', title: 'MB3D Engine', description: 'Module Based 3D Engine, Dropped the idea since it wasn\'t original.'},
       ];
 
       function renderAlbum() {
