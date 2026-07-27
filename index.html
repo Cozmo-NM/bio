@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bio Page</title>
-    <link rel="icon" type="image/x-icon" href="assets/media/2737-leaf-cat-without-the-leaf.png" />
+    <link rel="icon" type="image/x-icon" href="assets/media/pfp.png" />
     <style>
       :root {
         --accent: #8b5cf6;
@@ -445,7 +445,7 @@
       <section id="about" class="hero">
         <div class="profile-card">
           <div class="profile-top">
-            <img class="avatar" src="assets/media/logo.png" alt="Profile photo" onerror="this.onerror=null;this.src='assets/Media/2737-leaf-cat-without-the-leaf.png';" />
+            <img class="avatar" src="assets/media/logo.png" alt="Profile photo" onerror="this.onerror=null;this.src='assets/Media/pfp.png';" />
             <div>
               <p class="eyebrow">Biography</p>
               <h1>Cozmo</h1>
@@ -453,7 +453,7 @@
             </div>
           </div>
 
-          <p class="bio">Im a passionate developer and designer learning motion graphics and polished web experiences.</p>
+          <p class="bio">Im a developer and designer learning motion graphics and HTML/CSS.</p>
 
           <ul class="meta">
             <li><span>Location</span><strong>New Mexico, USA</strong></li>
@@ -481,7 +481,7 @@
         <div class="details">
           <div class="panel">
             <h2>About Me</h2>
-            <p>I'm drawn to aviation, graphic design, and building thoughtful digital experiences that feel personal and clean.</p>
+            <p>I'm drawn to aviation, graphic design, and building websites with safe backend practices.</p>
           </div>
 
           <div class="panel">
@@ -495,7 +495,7 @@
 
           <div class="panel">
             <h2>More About Me</h2>
-            <p>I keep some work private, but everything I share reflects what I care about and what I'm building next.</p>
+            <p>I keep most work private, but everything I share reflects what I care about and what I'm building next.</p>
           </div>
         </div>
       </section>
@@ -513,7 +513,7 @@
 
           <div class="audio-standalone">
             <audio id="audioPlayer" controls preload="metadata">
-              <source src="assets/Audio/7 - Jesus Walks.mp3" type="audio/mpeg" />
+              <source src="assets/Audio/Jesus Walks.mp3" type="audio/mpeg" />
             </audio>
           </div>
         </div>
@@ -522,7 +522,7 @@
       <section id="recommendations" class="content-section">
         <div class="content-card">
           <h2>Things I Recommend</h2>
-          <p>Products and ideas I genuinely think are worth checking out.</p>
+          <p>Just some things i find interesting or useful</p>
           <ul class="recommend-list">
            <li><strong>Kanye West</strong></li>
            <li><strong>Affinity Studio</strong></li>
@@ -539,7 +539,7 @@
       <section id="album" class="content-section">
         <div class="content-card">
           <h2>Album</h2>
-          <p>Click any image to open a larger preview. Add more items to the list in the script when you want more cards.</p>
+          <p>Click any image to open a larger preview.</p>
           <div class="gallery-grid" id="galleryGrid"></div>
         </div>
       </section>
@@ -565,9 +565,9 @@
       const modalDescription = document.getElementById('modalDescription');
 
       const albumItems = [
-        { src: 'assets/media/2737-leaf-cat-without-the-leaf.png', title: 'Leaf Cat', description: 'A playful local image from your media folder.' },
-        { src: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80', title: 'Night View', description: 'A quiet late-night scene with soft light and a moody atmosphere.' },
-        { src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80', title: 'Color Study', description: 'A bright collection of colors that felt like a small burst of energy.' }
+        { src: 'assets/media/pfp.png', title: 'Leaf Cat', description: 'My Profile Picture' },
+        { src: 'assets/media/gi.png', title: 'Gateway Interactive', description: 'Unnoficial company I founded with my friend but I left to pursue my education' },
+        { src: 'assets/media/mb3d.png', title: 'MB3D Engine', description: 'Module Based 3D Engine, Dropped the idea since it wasn\'t original.'},
       ];
 
       function renderAlbum() {
@@ -587,7 +587,7 @@
       if (emailLink) {
         emailLink.addEventListener('click', (event) => {
           event.preventDefault();
-          const mailtoUrl = 'mailto:cozmo.nm@gmail.com?subject=Hello%20Cozmo&body=Hi%20Cozmo%2C%20I%20found%20your%20site.';
+          const mailtoUrl = 'mailto:cozmo.nm@gmail.com';
           window.location.href = mailtoUrl;
         });
       }
