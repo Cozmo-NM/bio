@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bio Page</title>
+    <style>
+      :root {
+        --accent: #b7ff3b;
+        --accent-strong: #8ce600;
+        --bg: #050505;
+        --panel: rgba(255, 255, 255, 0.05);
+        --panel-strong: rgba(255, 255, 255, 0.08);
+        --text: #f8f8f8;
+        --muted: #a4a4a4;
+        --border: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(183, 255, 59, 0.18), transparent 30%),
+          linear-gradient(135deg, #030303 0%, #101010 100%);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .shell {
+        width: min(100%, 980px);
+        background: rgba(8, 8, 8, 0.88);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+        overflow: hidden;
+        backdrop-filter: blur(16px);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 24px;
+        padding: 32px;
+        background: linear-gradient(135deg, rgba(183, 255, 59, 0.08), transparent 45%);
+      }
+
+      .profile-card {
+        padding: 24px;
+        border-radius: 22px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+      }
+
+      .profile-top {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .avatar {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--accent);
+        box-shadow: 0 0 0 4px rgba(183, 255, 59, 0.16);
+      }
+
+      .eyebrow {
+        margin: 0 0 6px;
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: clamp(1.6rem, 2.4vw, 2.3rem);
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .bio {
+        margin: 18px 0;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #ececec;
+      }
+
+      .meta {
+        display: grid;
+        gap: 10px;
+        padding: 0;
+        margin: 20px 0 0;
+        list-style: none;
+      }
+
+      .meta li {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .meta span {
+        color: var(--muted);
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .links a {
+        padding: 10px 14px;
+        border-radius: 999px;
+        text-decoration: none;
+        color: var(--bg);
+        background: var(--accent);
+        font-weight: 700;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .links a:hover {
+        transform: translateY(-1px);
+        background: var(--accent-strong);
+      }
+
+      .details {
+        display: grid;
+        gap: 16px;
+      }
+
+      .panel {
+        padding: 20px;
+        border-radius: 22px;
+        background: var(--panel-strong);
+        border: 1px solid var(--border);
+      }
+
+      .panel h2 {
+        margin: 0 0 10px;
+        font-size: 1rem;
+        color: var(--accent);
+      }
+
+      .panel p,
+      .panel li {
+        margin: 0;
+        color: #e8e8e8;
+        line-height: 1.65;
+      }
+
+      .panel ul {
+        padding-left: 18px;
+        margin: 8px 0 0;
+      }
+
+      .player-wrap {
+        padding: 20px 32px 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.025);
+      }
+
+      audio {
+        width: 100%;
+        filter: sepia(1) saturate(0.8) hue-rotate(70deg);
+      }
+
+      .footnote {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .profile-top {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="profile-card">
+          <div class="profile-top">
+            <img
+              class="avatar"
+              src="assets/media/logo.png"
+              alt="Profile photo"
+              onerror="this.onerror=null;this.src='assets/Media/2737-leaf-cat-without-the-leaf.png';"
+            />
+            <div>
+              <p class="eyebrow">Placeholder1234</p>
+              <h1>Placeholder1234</h1>
+              <p class="subtitle">Placeholder1234</p>
+            </div>
+          </div>
+
+          <p class="bio">
+            Placeholder1234 Placeholder1234 Placeholder1234.
+          </p>
+
+          <ul class="meta">
+            <li><span>Location</span><strong>Placeholder1234</strong></li>
+            <li><span>Pronouns</span><strong>Placeholder1234</strong></li>
+            <li><span>Focus</span><strong>Placeholder1234</strong></li>
+            <li><span>Status</span><strong>Placeholder1234</strong></li>
+          </ul>
+
+          <div class="links">
+            <a href="#">Placeholder1234</a>
+            <a href="#">Placeholder1234</a>
+            <a href="#">Placeholder1234</a>
+          </div>
+        </div>
+
+        <div class="details">
+          <div class="panel">
+            <h2>About Me</h2>
+            <p>Placeholder1234 Placeholder1234 Placeholder1234.</p>
+          </div>
+
+          <div class="panel">
+            <h2>Interests</h2>
+            <ul>
+              <li>Placeholder1234</li>
+              <li>Placeholder1234</li>
+              <li>Placeholder1234</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h2>Current Mood</h2>
+            <p>Placeholder1234 Placeholder1234 Placeholder1234.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="player-wrap">
+        <audio controls autoplay loop>
+          <source src="assets/Audio/grand_project-this-is-gangsta_long-197061.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <p class="footnote">Placeholder1234</p>
+      </section>
+    </main>
+  </body>
+</html>
