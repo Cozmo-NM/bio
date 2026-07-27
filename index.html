@@ -124,18 +124,29 @@
       .links {
         display: flex;
         flex-wrap: wrap;
-        gap: 125px;
+        gap: 16px;
         margin-top: 20px;
       }
 
       .links a {
-        padding: 10px 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 180px;
+        padding: 10px 16px;
         border-radius: 999px;
         text-decoration: none;
         color: var(--bg);
         background: var(--accent);
         font-weight: 700;
         transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .links a svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
       }
 
       .links a:hover {
@@ -225,46 +236,62 @@
           </p>
 
           <ul class="meta">
-            <li><span>Location</span><strong>New Mexico USA</strong></li>
+            <li><span>Location</span><strong>New Mexico USA - MDT/MST</strong></li>
             <li><span>Pronouns</span><strong>He/Him</strong></li>
-            <li><span>Favorite Song</span><strong>Ultralight Beam - Kanye West</strong></li>
-            <li><span>Favorite Quote</span><strong>"Just between us, always telling the truth is for cowards, lying takes courage. Lies are simply an investment in your future, and just like any good investment, nothing can go wrong. As long as you stay ontop of things." - Moritz Zimmerman</strong></li>
+            <li><span>Occupation</span><strong>Student</strong></li>
+            <li><span>Skills</span><strong>Web Development, Graphic Design</strong></li>
           </ul>
 
           <div class="links">
-            <a href="#">Placeholder1234</a>
-            <a href="#">Placeholder1234</a>
+            <a href="https://github.com/Cozmo-NM" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.305-5.467-1.335-5.467-5.94 0-1.312.469-2.383 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23A11.52 11.52 0 0 1 12 5.803c1.02.005 2.047.138 3.006.402 2.292-1.552 3.3-1.23 3.3-1.23.654 1.653.242 2.873.118 3.176.77.839 1.236 1.91 1.236 3.222 0 4.61-2.804 5.633-5.475 5.93.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12.297 24 5.67 18.63.297 12 .297z"
+                />
+              </svg>
+              <span>My GitHub</span>
+            </a>
+            <a href="mailto:cozmo.nm@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 16H4V8.23l8 5.33 8-5.33V20Zm-8-7.54L4 6h16l-8 6.46Z"
+                />
+              </svg>
+              <span>Email Me</span>
+            </a>
           </div>
         </div>
 
         <div class="details">
           <div class="panel">
             <h2>About Me</h2>
-            <p>Placeholder1234 Placeholder1234 Placeholder1234.</p>
+            <p>I am a aspiring commercial pilot with a passion for aviation and different technology. I have a focus for Graphic Design and Website Development. Im alright at coding but prefer design oriented tasks.</p>
           </div>
 
           <div class="panel">
             <h2>Interests</h2>
             <ul>
-              <li>Placeholder1234</li>
-              <li>Placeholder1234</li>
-              <li>Placeholder1234</li>
+              <li>Aviation</li>
+              <li>Graphic Design</li>
+              <li>Web Development</li>
             </ul>
           </div>
 
           <div class="panel">
-            <h2>Current Mood</h2>
-            <p>Placeholder1234 Placeholder1234 Placeholder1234.</p>
+            <h2>More about me</h2>
+            <p>I prefer to keep my stuff I do a bit more private, but everything I share is a reflection of my interests and passions.</p>
           </div>
         </div>
       </section>
 
       <section class="player-wrap">
         <audio controls autoplay loop>
-          <source src="assets/Audio/grand_project-this-is-gangsta_long-197061.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
+          <source src="assets/Audio/7 - Jesus Walks.mp3" type="audio/mpeg" />
+          Your browser does not support this audio element.
         </audio>
-        <p class="footnote">Placeholder1234</p>
+        <p class="footnote">Jesus Walks - Kanye West</p>
       </section>
     </main>
   </body>
