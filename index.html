@@ -4,28 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bio Page</title>
-    <link rel="icon" type="image/x-icon" href="assets/media/2737-leaf-cat-without-the-leaf.png">
+    <link rel="icon" type="image/x-icon" href="assets/media/2737-leaf-cat-without-the-leaf.png" />
     <style>
       :root {
         --accent: #8b5cf6;
-        --accent-strong: #6d28d9;
         --accent-blue: #4ea3ff;
-        --accent-soft: rgba(78, 163, 255, 0.2);
-        --bg: #03050a;
+        --accent-green: #4ea3ff;
         --panel: rgba(255, 255, 255, 0.06);
-        --panel-strong: rgba(255, 255, 255, 0.09);
         --text: #f5f7ff;
         --muted: #9ea7c7;
         --border: rgba(255, 255, 255, 0.12);
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
 
       body {
         margin: 0;
@@ -70,7 +62,7 @@
         padding: 10px 16px;
         font-weight: 700;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
       }
 
       .tab-link:hover,
@@ -116,7 +108,7 @@
 
       .eyebrow {
         margin: 0 0 6px;
-        color: var(--accent-blue);
+        color: var(--accent-green);
         font-size: 0.8rem;
         font-weight: 700;
         letter-spacing: 0.2em;
@@ -177,15 +169,15 @@
         padding: 10px 16px;
         border-radius: 999px;
         text-decoration: none;
-        color: white;
-        background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+        color: #050505;
+        background: var(--accent-green);
         font-weight: 700;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.2s ease, background 0.2s ease;
       }
 
       .links a:hover {
         transform: translateY(-1px);
-        box-shadow: 0 8px 20px rgba(78, 163, 255, 0.24);
+        background: #6dbbff;
       }
 
       .details {
@@ -196,7 +188,7 @@
       .panel h2 {
         margin: 0 0 10px;
         font-size: 1rem;
-        color: var(--accent-blue);
+        color: var(--accent-green);
       }
 
       .panel p,
@@ -221,12 +213,24 @@
 
       .content-card h2 {
         margin: 0 0 8px;
-        color: var(--accent-blue);
+        color: var(--accent-green);
       }
 
       .content-card p {
         color: #ebebeb;
         line-height: 1.7;
+      }
+
+      .music-card {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.16), rgba(78, 163, 255, 0.1));
+      }
+
+      .music-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
       }
 
       .track-meta p {
@@ -238,18 +242,6 @@
         margin-top: 2px;
         color: var(--muted);
         font-size: 0.95rem;
-      }
-
-      .music-card {
-        background: linear-gradient(135deg, rgba(139, 92, 246, 0.16), rgba(78, 163, 255, 0.1));
-      }
-
-      .music-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 16px;
       }
 
       .music-status {
@@ -270,7 +262,6 @@
         flex-wrap: wrap;
       }
 
-      /* All transport/volume buttons now share one consistent size */
       .icon-btn {
         border: 0;
         border-radius: 50%;
@@ -282,28 +273,20 @@
         background: linear-gradient(135deg, var(--accent), var(--accent-blue));
         color: white;
         cursor: pointer;
-        font-size: 1rem;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         flex-shrink: 0;
       }
 
       .icon-btn:hover {
         transform: translateY(-1px);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
       }
 
-      /* Icons now fill most of the button instead of sitting small in the middle */
-      .icon-btn img {
-        width: 28px;
-        height: 28px;
-        object-fit: contain;
-        pointer-events: none;
-      }
-
+      .icon-btn img,
       .icon-btn svg {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
         pointer-events: none;
       }
 
@@ -328,7 +311,6 @@
         background: rgba(255, 255, 255, 0.1);
         overflow: hidden;
         cursor: pointer;
-        position: relative;
       }
 
       .progress-fill {
@@ -358,8 +340,13 @@
         padding-left: 18px;
       }
 
-      .recommend-list li strong {
-        color: var(--accent);
+      .recommend-list li {
+        color: #e8e8e8;
+        line-height: 1.6;
+      }
+
+      .recommend-list strong {
+        color: var(--accent-green);
       }
 
       .gallery-grid {
@@ -380,7 +367,7 @@
 
       .gallery-card:hover {
         transform: translateY(-2px);
-        border-color: var(--accent-blue);
+        border-color: var(--accent-green);
       }
 
       .gallery-card img {
@@ -432,7 +419,7 @@
 
       .modal-content h3 {
         margin: 0 0 8px;
-        color: var(--accent-blue);
+        color: var(--accent-green);
       }
 
       .modal-content p {
@@ -442,48 +429,23 @@
       }
 
       @media (max-width: 900px) {
-        .hero {
-          grid-template-columns: 1fr;
-        }
-
-        .gallery-grid {
-          grid-template-columns: 1fr 1fr;
-        }
+        .hero { grid-template-columns: 1fr; }
+        .gallery-grid { grid-template-columns: 1fr 1fr; }
       }
 
       @media (max-width: 768px) {
-        .profile-top {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .gallery-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .music-player {
-          align-items: stretch;
-        }
+        .profile-top { flex-direction: column; align-items: flex-start; }
+        .gallery-grid { grid-template-columns: 1fr; }
+        .music-player { align-items: stretch; }
       }
     </style>
   </head>
   <body>
     <main class="shell">
-      <nav class="section-nav" aria-label="Page sections">
-        <button class="tab-link active" data-target="about">About</button>
-        <button class="tab-link" data-target="recommendations">Recommendations</button>
-        <button class="tab-link" data-target="album">Album</button>
-      </nav>
-
       <section id="about" class="hero">
         <div class="profile-card">
           <div class="profile-top">
-            <img
-              class="avatar"
-              src="assets/media/logo.png"
-              alt="Profile photo"
-              onerror="this.onerror=null;this.src='assets/Media/2737-leaf-cat-without-the-leaf.png';"
-            />
+            <img class="avatar" src="assets/media/logo.png" alt="Profile photo" onerror="this.onerror=null;this.src='assets/Media/2737-leaf-cat-without-the-leaf.png';" />
             <div>
               <p class="eyebrow">Biography</p>
               <h1>Cozmo</h1>
@@ -491,12 +453,10 @@
             </div>
           </div>
 
-          <p class="bio">
-            I'm a passionate developer and designer who is learning motion graphical design.
-          </p>
+          <p class="bio">Im a passionate developer and designer learning motion graphics and polished web experiences.</p>
 
           <ul class="meta">
-            <li><span>Location</span><strong>New Mexico USA - MDT/MST</strong></li>
+            <li><span>Location</span><strong>New Mexico, USA</strong></li>
             <li><span>Pronouns</span><strong>He/Him</strong></li>
             <li><span>Occupation</span><strong>Student</strong></li>
             <li><span>Skills</span><strong>Web Development, Graphic Design</strong></li>
@@ -505,19 +465,13 @@
           <div class="links">
             <a href="https://github.com/Cozmo-NM" target="_blank" rel="noreferrer">
               <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
-                <path
-                  fill="currentColor"
-                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.305-5.467-1.335-5.467-5.94 0-1.312.469-2.383 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23A11.52 11.52 0 0 1 12 5.803c1.02.005 2.047.138 3.006.402 2.292-1.552 3.3-1.23 3.3-1.23.654 1.653.242 2.873.118 3.176.77.839 1.236 1.91 1.236 3.222 0 4.61-2.804 5.633-5.475 5.93.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12.297 24 5.67 18.63.297 12 .297z"
-                />
+                <path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.305-5.467-1.335-5.467-5.94 0-1.312.469-2.383 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23A11.52 11.52 0 0 1 12 5.803c1.02.005 2.047.138 3.006.402 2.292-1.552 3.3-1.23 3.3-1.23.654 1.653.242 2.873.118 3.176.77.839 1.236 1.91 1.236 3.222 0 4.61-2.804 5.633-5.475 5.93.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12.297 24 5.67 18.63.297 12 .297z" />
               </svg>
               <span>My GitHub</span>
             </a>
-            <a href="#" id="emailLink">
+            <a href="mailto:cozmo.nm@gmail.com" id="emailLink">
               <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
-                <path
-                  fill="currentColor"
-                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 16H4V8.23l8 5.33 8-5.33V20Zm-8-7.54L4 6h16l-8 6.46Z"
-                />
+                <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 16H4V8.23l8 5.33 8-5.33V20Zm-8-7.54L4 6h16l-8 6.46Z" />
               </svg>
               <span>Email Me</span>
             </a>
@@ -527,7 +481,7 @@
         <div class="details">
           <div class="panel">
             <h2>About Me</h2>
-            <p>I am an aspiring commercial pilot with a passion for aviation, graphic design, and web development. I like building things that feel clean, expressive, and personal.</p>
+            <p>I'm drawn to aviation, graphic design, and building thoughtful digital experiences that feel personal and clean.</p>
           </div>
 
           <div class="panel">
@@ -541,7 +495,7 @@
 
           <div class="panel">
             <h2>More About Me</h2>
-            <p>I prefer to keep some of my work private, but everything I share is a reflection of what I care about and what I am building.</p>
+            <p>I keep some work private, but everything I share reflects what I care about and what I'm building next.</p>
           </div>
         </div>
       </section>
@@ -551,54 +505,33 @@
           <div class="music-header">
             <div class="track-meta">
               <h2>Now Playing</h2>
-              <p id="trackTitle">Jesus Walks</p>
-              <p class="track-subtitle" id="trackArtist">Kanye West</p>
+              <p>Jesus Walks</p>
+              <p class="track-subtitle">Kanye West</p>
             </div>
-            <span class="music-status" id="playerBadge">Ready</span>
+            <span class="music-status">Audio</span>
           </div>
 
-          <div class="music-player">
-            <audio id="audioPlayer" preload="metadata"></audio>
-
-            <button class="icon-btn" id="prevBtn" aria-label="Previous track">
-              <img src="assets/media/restart.png" alt="" />
-            </button>
-            <button class="icon-btn" id="playPauseBtn" aria-label="Play or pause">
-              <img src="assets/media/play.png" alt="" />
-            </button>
-            <button class="icon-btn" id="nextBtn" aria-label="Next track">
-              <img src="assets/media/fast_forward.png" alt="" />
-            </button>
-
-            <div class="progress-wrap">
-              <div class="time" id="currentTime">0:00</div>
-              <div class="progress-track" id="progressTrack">
-                <div class="progress-fill" id="progressFill"></div>
-              </div>
-              <div class="time" id="durationTime">0:00</div>
-            </div>
-
-            <div class="volume-wrap">
-              <button class="icon-btn" id="muteBtn" aria-label="Mute audio">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="currentColor" d="M3 9.5v5h3.8l4.2 3.4V6.1L6.8 9.5H3Zm11.4-.1a5.7 5.7 0 0 1 0 5.2l1.4 1.1a7.2 7.2 0 0 0 0-7.4l-1.4 1.1Zm2.3-2.4a9.1 9.1 0 0 1 0 9.8l1.4 1.1a10.8 10.8 0 0 0 0-12l-1.4 1.1Z" />
-                </svg>
-              </button>
-              <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="0.25" />
-            </div>
+          <div class="audio-standalone">
+            <audio id="audioPlayer" controls preload="metadata">
+              <source src="assets/Audio/7 - Jesus Walks.mp3" type="audio/mpeg" />
+            </audio>
           </div>
         </div>
       </section>
 
       <section id="recommendations" class="content-section">
         <div class="content-card">
-          <h2>Things I'm Not Sponsored By But Recommend</h2>
-          <p>Products/Software I think are worth checking out.</p>
+          <h2>Things I Recommend</h2>
+          <p>Products and ideas I genuinely think are worth checking out.</p>
           <ul class="recommend-list">
-            <strong>Music:</strong>
-            <strong>Design:</strong>
-            <strong>Media:</strong>
-            <strong>Food:</strong>
+           <li><strong>Kanye West</strong></li>
+           <li><strong>Affinity Studio</strong></li>
+           <li><strong>Cavalry</strong></li>
+           <li><strong>Visual Studio/Visual Studio Code</strong></li>
+           <li><strong>Spotify</strong></li>
+           <li><strong>GitHub</strong></li>
+           <li><strong>Discord</strong></li>
+           <li><strong>Blender</strong></li>
           </ul>
         </div>
       </section>
@@ -606,11 +539,10 @@
       <section id="album" class="content-section">
         <div class="content-card">
           <h2>Album</h2>
-          <p>Click any image to open a larger preview. Add more by appending another item to the album list in the script below.</p>
+          <p>Click any image to open a larger preview. Add more items to the list in the script when you want more cards.</p>
           <div class="gallery-grid" id="galleryGrid"></div>
         </div>
       </section>
-
     </main>
 
     <div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Image preview">
@@ -623,32 +555,14 @@
       </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script>
       const tabs = document.querySelectorAll('.tab-link');
       const emailLink = document.getElementById('emailLink');
-      const audio = document.getElementById('audioPlayer');
-      const playPauseBtn = document.getElementById('playPauseBtn');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const muteBtn = document.getElementById('muteBtn');
-      const volumeControl = document.getElementById('volumeControl');
-      const progressTrack = document.getElementById('progressTrack');
-      const progressFill = document.getElementById('progressFill');
-      const currentTime = document.getElementById('currentTime');
-      const durationTime = document.getElementById('durationTime');
-      const trackTitle = document.getElementById('trackTitle');
-      const trackArtist = document.getElementById('trackArtist');
-      const playerBadge = document.getElementById('playerBadge');
       const galleryGrid = document.getElementById('galleryGrid');
       const modal = document.getElementById('imageModal');
       const modalImage = document.getElementById('modalImage');
       const modalTitle = document.getElementById('modalTitle');
       const modalDescription = document.getElementById('modalDescription');
-
-      const playlist = [
-        { title: 'Jesus Walks', artist: 'Kanye West', src: 'assets/Audio/7 - Jesus Walks.mp3' }
-      ];
 
       const albumItems = [
         { src: 'assets/media/2737-leaf-cat-without-the-leaf.png', title: 'Leaf Cat', description: 'A playful local image from your media folder.' },
@@ -656,64 +570,8 @@
         { src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80', title: 'Color Study', description: 'A bright collection of colors that felt like a small burst of energy.' }
       ];
 
-      let currentTrackIndex = 0;
-      let isScrubbing = false;
-
-      function formatTime(seconds) {
-        if (!Number.isFinite(seconds)) return '0:00';
-        const mins = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs.toString().padStart(2, '0')}`;
-      }
-
-      function updateTransportIcons() {
-        const isPlaying = !audio.paused;
-        playPauseBtn.innerHTML = `<img src="assets/media/${isPlaying ? 'pause' : 'play'}.png" alt="" />`;
-        muteBtn.innerHTML = audio.muted
-          ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15 9.5v5l1.4 1.1a7.2 7.2 0 0 0 0-7.4L15 9.5Zm-4.2-3.4L6.8 9.5H3v5h3.8l4.2 3.4v-12Z" /></svg>'
-          : '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9.5v5h3.8l4.2 3.4V6.1L6.8 9.5H3Zm11.4-.1a5.7 5.7 0 0 1 0 5.2l1.4 1.1a7.2 7.2 0 0 0 0-7.4l-1.4 1.1Zm2.3-2.4a9.1 9.1 0 0 1 0 9.8l1.4 1.1a10.8 10.8 0 0 0 0-12l-1.4 1.1Z" /></svg>';
-      }
-
-      function updateProgress() {
-        if (isScrubbing) return;
-        if (!audio.duration || Number.isNaN(audio.duration)) return;
-        const percent = (audio.currentTime / audio.duration) * 100;
-        progressFill.style.width = `${percent}%`;
-        currentTime.textContent = formatTime(audio.currentTime);
-      }
-
-      function loadTrack(index) {
-        currentTrackIndex = (index + playlist.length) % playlist.length;
-        const track = playlist[currentTrackIndex];
-        trackTitle.textContent = track.title;
-        trackArtist.textContent = track.artist;
-        playerBadge.textContent = 'Loading';
-        progressFill.style.width = '0%';
-        currentTime.textContent = '0:00';
-        durationTime.textContent = '0:00';
-        audio.src = track.src;
-        audio.load();
-        audio.volume = Number(volumeControl.value) || 0.25;
-      }
-
-      function playCurrentTrack() {
-        const playPromise = audio.play();
-        if (playPromise && typeof playPromise.then === 'function') {
-          playPromise
-            .then(() => {
-              updateTransportIcons();
-              playerBadge.textContent = 'Playing';
-            })
-            .catch(() => {
-              updateTransportIcons();
-              playerBadge.textContent = 'Tap play to start';
-            });
-        }
-      }
-
       function renderAlbum() {
         galleryGrid.innerHTML = '';
-
         albumItems.forEach((item, index) => {
           const figure = document.createElement('figure');
           figure.className = 'gallery-card';
@@ -726,125 +584,11 @@
         });
       }
 
-      function seekFromEvent(event) {
-        if (!audio.duration || Number.isNaN(audio.duration)) return;
-        const rect = progressTrack.getBoundingClientRect();
-        const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-        const ratio = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
-        progressFill.style.width = `${ratio * 100}%`;
-        currentTime.textContent = formatTime(ratio * audio.duration);
-        return ratio;
-      }
-
-      if (audio) {
-        loadTrack(0);
-        audio.volume = 0.25;
-        volumeControl.value = '0.25';
-        updateTransportIcons();
-
-        audio.addEventListener('loadedmetadata', () => {
-          durationTime.textContent = formatTime(audio.duration);
-          playerBadge.textContent = 'Ready';
-          updateProgress();
-        });
-
-        audio.addEventListener('error', () => {
-          playerBadge.textContent = 'Unavailable';
-        });
-
-        audio.addEventListener('timeupdate', updateProgress);
-        audio.addEventListener('play', () => {
-          updateTransportIcons();
-          playerBadge.textContent = 'Playing';
-        });
-        audio.addEventListener('pause', () => {
-          updateTransportIcons();
-          if (audio.currentTime > 0 && !audio.ended) {
-            playerBadge.textContent = 'Paused';
-          }
-        });
-        audio.addEventListener('ended', () => {
-          loadTrack(currentTrackIndex + 1);
-          playCurrentTrack();
-        });
-
-        playPauseBtn.addEventListener('click', () => {
-          if (audio.paused) {
-            playCurrentTrack();
-          } else {
-            audio.pause();
-          }
-        });
-
-        prevBtn.addEventListener('click', () => {
-          loadTrack(currentTrackIndex - 1);
-          playCurrentTrack();
-        });
-
-        nextBtn.addEventListener('click', () => {
-          loadTrack(currentTrackIndex + 1);
-          playCurrentTrack();
-        });
-
-        // Click-to-seek plus proper click-and-drag scrubbing
-        progressTrack.addEventListener('mousedown', (event) => {
-          isScrubbing = true;
-          seekFromEvent(event);
-        });
-
-        window.addEventListener('mousemove', (event) => {
-          if (isScrubbing) seekFromEvent(event);
-        });
-
-        window.addEventListener('mouseup', (event) => {
-          if (!isScrubbing) return;
-          isScrubbing = false;
-          const ratio = seekFromEvent(event);
-          if (ratio !== undefined) audio.currentTime = ratio * audio.duration;
-        });
-
-        progressTrack.addEventListener('touchstart', (event) => {
-          isScrubbing = true;
-          seekFromEvent(event);
-        });
-
-        progressTrack.addEventListener('touchmove', (event) => {
-          if (isScrubbing) seekFromEvent(event);
-        });
-
-        progressTrack.addEventListener('touchend', (event) => {
-          if (!isScrubbing) return;
-          isScrubbing = false;
-          const rect = progressTrack.getBoundingClientRect();
-          const ratio = Math.min(1, Math.max(0, (progressFill.offsetWidth) / rect.width));
-          audio.currentTime = ratio * audio.duration;
-        });
-
-        volumeControl.addEventListener('input', () => {
-          audio.volume = Number(volumeControl.value);
-          audio.muted = audio.volume === 0;
-          updateTransportIcons();
-        });
-
-        muteBtn.addEventListener('click', () => {
-          audio.muted = !audio.muted;
-          if (!audio.muted) {
-            const newVolume = Number(volumeControl.value) || 0.25;
-            audio.volume = newVolume;
-            volumeControl.value = newVolume.toFixed(2);
-          }
-          updateTransportIcons();
-        });
-      }
-
       if (emailLink) {
         emailLink.addEventListener('click', (event) => {
           event.preventDefault();
-          const mailtoUrl = 'mailto:cozmo.nm@gmail.com?subject=Hello%20Cozmo';
-          const opened = window.open(mailtoUrl, '_blank', 'noopener,noreferrer');
-          if (!opened) {
-            window.location.href = mailtoUrl;
-          }
+          const mailtoUrl = 'mailto:cozmo.nm@gmail.com?subject=Hello%20Cozmo&body=Hi%20Cozmo%2C%20I%20found%20your%20site.';
+          window.location.href = mailtoUrl;
         });
       }
 
@@ -852,11 +596,9 @@
         button.addEventListener('click', () => {
           const targetId = button.getAttribute('data-target');
           const targetSection = document.getElementById(targetId);
-
           if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
-
           tabs.forEach((tab) => tab.classList.remove('active'));
           button.classList.add('active');
         });
@@ -867,7 +609,6 @@
       galleryGrid.addEventListener('click', (event) => {
         const card = event.target.closest('.gallery-card');
         if (!card) return;
-
         const item = albumItems[Number(card.dataset.index)];
         modalImage.src = item.src;
         modalImage.alt = item.title;
@@ -881,37 +622,6 @@
           modal.classList.remove('open');
         }
       });
-
-      if (typeof anime === 'function') {
-        anime({
-          targets: '.content-card, .music-card, .panel, .gallery-card',
-          opacity: [0, 1],
-          translateY: [18, 0],
-          duration: 700,
-          delay: anime.stagger(70),
-          easing: 'easeOutExpo'
-        });
-
-        document.querySelectorAll('.gallery-card, .tab-link, .links a, .icon-btn').forEach((element) => {
-          element.addEventListener('mouseenter', () => {
-            anime({
-              targets: element,
-              scale: 1.02,
-              duration: 180,
-              easing: 'easeOutQuad'
-            });
-          });
-
-          element.addEventListener('mouseleave', () => {
-            anime({
-              targets: element,
-              scale: 1,
-              duration: 180,
-              easing: 'easeOutQuad'
-            });
-          });
-        });
-      }
     </script>
   </body>
 </html>
