@@ -584,14 +584,6 @@
         });
       }
 
-      if (emailLink) {
-        emailLink.addEventListener('click', (event) => {
-          event.preventDefault();
-          const mailtoUrl = 'mailto:cozmo.nm@gmail.com';
-          window.location.href = mailtoUrl;
-        });
-      }
-
       tabs.forEach((button) => {
         button.addEventListener('click', () => {
           const targetId = button.getAttribute('data-target');
