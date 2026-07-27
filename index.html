@@ -658,6 +658,8 @@
 
       let currentTrackIndex = 0;
       let isScrubbing = false;
+      let isClickScrolling = false;
+      let clickScrollTimeout = null;
 
       function formatTime(seconds) {
         if (!Number.isFinite(seconds)) return '0:00';
@@ -726,6 +728,25 @@
         });
       }
 
+      function attemptAutoplay() {
+        // Browsers block unmuted autoplay before the user has interacted with the page,
+        // so start muted and let the visitor unmute with the speaker button.
+        audio.muted = true;
+        updateTransportIcons();
+        const playPromise = audio.play();
+        if (playPromise && typeof playPromise.then === 'function') {
+          playPromise
+            .then(() => {
+              updateTransportIcons();
+              playerBadge.textContent = 'Playing (muted - tap 🔈 to unmute)';
+            })
+            .catch(() => {
+              updateTransportIcons();
+              playerBadge.textContent = 'Tap play to start';
+            });
+        }
+      }
+
       function seekFromEvent(event) {
         if (!audio.duration || Number.isNaN(audio.duration)) return;
         const rect = progressTrack.getBoundingClientRect();
@@ -744,9 +765,10 @@
 
         audio.addEventListener('loadedmetadata', () => {
           durationTime.textContent = formatTime(audio.duration);
-          playerBadge.textContent = 'Ready';
           updateProgress();
         });
+
+        audio.addEventListener('canplay', attemptAutoplay, { once: true });
 
         audio.addEventListener('error', () => {
           playerBadge.textContent = 'Unavailable';
@@ -853,14 +875,45 @@
           const targetId = button.getAttribute('data-target');
           const targetSection = document.getElementById(targetId);
 
+          isClickScrolling = true;
+          clearTimeout(clickScrollTimeout);
+
           if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
 
           tabs.forEach((tab) => tab.classList.remove('active'));
           button.classList.add('active');
+
+          // Let the scroll-spy take back over once the smooth scroll has settled
+          clickScrollTimeout = setTimeout(() => {
+            isClickScrolling = false;
+          }, 800);
         });
       });
+
+      // Scroll-spy: highlight the nav tab for whichever section is currently in view
+      const spySections = ['about', 'recommendations', 'album']
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+      const spyObserver = new IntersectionObserver(
+        (entries) => {
+          if (isClickScrolling) return;
+
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              tabs.forEach((tab) => {
+                tab.classList.toggle('active', tab.getAttribute('data-target') === id);
+              });
+            }
+          });
+        },
+        { root: null, rootMargin: '-35% 0px -55% 0px', threshold: 0 }
+      );
+
+      spySections.forEach((section) => spyObserver.observe(section));
 
       renderAlbum();
 
@@ -914,4 +967,5 @@
       }
     </script>
   </body>
-</html>
+  </html>
+  
