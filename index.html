@@ -203,6 +203,27 @@
         margin: 8px 0 0;
       }
 
+      .banner-section {
+        padding: 24px 32px 0;
+      }
+
+      .banner-video-wrap {
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      .banner-video {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 320px;
+        object-fit: cover;
+        background: #05070b;
+      }
+
       .content-section {
         padding: 0 32px 32px;
       }
@@ -377,6 +398,12 @@
         object-fit: cover;
       }
 
+      .gallery-card img[src*="disclaimer.png"] {
+        object-fit: contain;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
       .gallery-card figcaption {
         padding: 12px 14px;
         font-size: 0.95rem;
@@ -532,6 +559,8 @@
            <li><strong>GitHub</strong></li>
            <li><strong>Discord</strong></li>
            <li><strong>Blender</strong></li>
+           <li><strong>Half Sword Enhancer</strong></li>
+           <li><strong>SHOW!! - How To Sell Drugs Online (Fast) - SHOW!! Netflix - Outstanding show.</strong></li>
           </ul>
         </div>
       </section>
@@ -568,7 +597,17 @@
         { src: 'assets/media/pfp.png', title: 'Leaf Cat', description: 'My Profile Picture' },
         { src: 'assets/media/gi.png', title: 'Gateway Interactive', description: 'Unnoficial company I founded with my friend but I left to pursue my education' },
         { src: 'assets/media/mb3d.png', title: 'MB3D Engine', description: 'Module Based 3D Engine, Dropped the idea since it wasn\'t original.'},
+        { src: 'assets/media/Mydrugs.mp4', title: 'My Drugs', description: 'A fake advertisement for a show on netflix called How To Sell Drugs Online (Fast), awesome show but very bad sounding name.' },
       ];
+
+      function isSupportedImage(src) {
+        const extension = src.split('?')[0].split('#')[0].toLowerCase().match(/\.([a-z0-9]+)$/)?.[1];
+        return ['jpeg', 'jpg', 'png', 'webm'].includes(extension || '');
+      }
+
+      function getPreviewSrc(src) {
+        return isSupportedImage(src) ? src : 'assets/media/disclaimer.png';
+      }
 
       function renderAlbum() {
         galleryGrid.innerHTML = '';
@@ -577,7 +616,7 @@
           figure.className = 'gallery-card';
           figure.dataset.index = index;
           figure.innerHTML = `
-            <img src="${item.src}" alt="${item.title}" />
+            <img src="${getPreviewSrc(item.src)}" alt="${item.title}" />
             <figcaption>${item.title}</figcaption>
           `;
           galleryGrid.appendChild(figure);
